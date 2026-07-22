@@ -1,39 +1,47 @@
 import type { AppDefinition }
-from "@/types/app";
+    from "@/types/app";
 
 
 import DemoApp
-from "./demo/DemoApp";
+    from "./demo/DemoApp";
+import ExplorerApp from "@/apps/explorer/ExplorerApp";
 
 
 
 export const APP_REGISTRY:
-AppDefinition[] = [
+    AppDefinition[] = [
 
 
-{
+        {
 
-id:"demo",
+            id: "demo",
 
-name:"Demo App",
+            name: "Demo App",
 
-icon:"📝",
+            icon: "📝",
 
-component:DemoApp
+            component: DemoApp
 
-}
+        },
+        {
+        id: "explorer",
+        name: "File Explorer",
+        icon: "📁",
+        keywords: ["files", "folders", "explorer"],
+        component: ExplorerApp,
+        },
 
 
-];
+    ];
 
 
 
 export function getAppById(
-id:string
-){
+    id: string
+) {
 
-return APP_REGISTRY.find(
-app=>app.id===id
-);
+    return APP_REGISTRY.find(
+        app => app.id === id
+    );
 
 }

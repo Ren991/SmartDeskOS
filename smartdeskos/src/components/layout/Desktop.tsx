@@ -8,7 +8,7 @@ Settings
 }
 from "lucide-react";
 
-
+import { APP_REGISTRY } from "@/apps/registry";
 import Wallpaper
 from "../system/Wallpaper";
 
@@ -78,45 +78,45 @@ icon={
 
 /> */}
 
+
+<div
+className="
+relative
+z-10
+p-5
+flex
+flex-col
+gap-4
+"
+>
+
+{
+APP_REGISTRY.map(app => (
+
 <DesktopIcon
 
-label="Demo App"
+key={app.id}
 
-icon={<Folder/>}
+label={app.name}
 
+icon={
+<span className="text-3xl">
+{app.icon}
+</span>
+}
 
 onDoubleClick={()=>{
 
-launchApp("demo")
+launchApp(app.id)
 
 }}
 
 />
 
-
-
-<DesktopIcon
-
-label="Notes"
-
-icon={
-<Notebook/>
+))
 }
 
-/>
-
-
-
-<DesktopIcon
-
-label="Settings"
-
-icon={
-<Settings/>
-}
-
-/>
-
+</div>
 
 
 </div>
