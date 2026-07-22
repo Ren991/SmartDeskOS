@@ -11,8 +11,10 @@ import Window
 from "./Window";
 
 
-import DemoApp
-from "@/apps/demo/DemoApp";
+import {
+getAppById
+}
+from "@/apps/registry";
 
 
 
@@ -31,8 +33,28 @@ return (
 <>
 
 {
-windows.map(window=>(
 
+windows.map(window=>{
+
+
+const app =
+getAppById(
+window.appId
+);
+
+
+
+if(!app)
+return null;
+
+
+
+const Component =
+app.component;
+
+
+
+return (
 
 <Window
 
@@ -42,20 +64,25 @@ key={window.id}
 
 >
 
-<DemoApp/>
+
+<Component/>
 
 
 </Window>
 
 
-))
+)
+
+
+})
+
 
 }
 
 
 </>
 
-
 );
+
 
 }

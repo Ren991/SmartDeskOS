@@ -19,7 +19,7 @@ Demo Application
 
 <p className="mt-3">
 
-SmartDeskOS Window Manager funcionando 🚀
+Mi primera aplicación dentro de SmartDeskOS 🚀
 
 </p>
 

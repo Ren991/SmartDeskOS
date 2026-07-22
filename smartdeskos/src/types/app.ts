@@ -1,25 +1,16 @@
-import type { ComponentType, ReactNode } from "react";
+import type { ComponentType } from "react";
+
 
 export interface AppDefinition {
-  id: string;
-  name: string;
-  description?: string;
-  version: string;
 
-  icon: ReactNode;
+  id:string;
 
-  component: ComponentType;
+  name:string;
 
-  category?: string;
+  icon:string;
 
-  keywords?: string[];
+  keywords?:string[];
 
-  commands?: string[];
+  component:ComponentType;
 
-  singleton?: boolean;
-
-  defaultWidth?: number;
-  defaultHeight?: number;
-
-  supportedExtensions?: string[];
 }

@@ -15,6 +15,10 @@ from "../system/Wallpaper";
 import {useWindowStore}
 from "@/stores/useWindowStore";
 
+import {
+launchApp
+}
+from "@/services/appLauncher";
 
 import WindowContainer
 from "@/components/window/WindowContainer";
@@ -64,13 +68,28 @@ gap-4
 >
 
 
-<DesktopIcon
+{/* <DesktopIcon
 
 label="Explorer"
 
 icon={
 <Folder/>
 }
+
+/> */}
+
+<DesktopIcon
+
+label="Demo App"
+
+icon={<Folder/>}
+
+
+onDoubleClick={()=>{
+
+launchApp("demo")
+
+}}
 
 />
 
