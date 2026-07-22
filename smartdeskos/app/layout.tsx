@@ -1,33 +1,50 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import AppProviders 
+from "@/providers/AppProviders";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
-  title: "SmartDeskOS",
-  description: "SmartDeskOS",
+
+ title:"SmartDeskOS",
+
+ description:
+ "A web desktop operating system"
+
 };
 
+
+
 export default function RootLayout({
-  children,
+
+ children,
+
 }: Readonly<{
-  children: React.ReactNode;
+
+ children: React.ReactNode;
+
 }>) {
-  return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
-  );
+
+
+return (
+
+<html lang="en">
+
+<body>
+
+<AppProviders>
+
+ {children}
+
+</AppProviders>
+
+
+</body>
+
+</html>
+
+);
+
 }

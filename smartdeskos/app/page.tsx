@@ -1,10 +1,31 @@
-import Image from "next/image";
+export default function Home(){
 
-export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      
-       <h1>SmartDeskOS</h1>
-    </div>
-  );
+
+return (
+
+<main className="
+min-h-screen
+flex
+items-center
+justify-center
+bg-neutral-950
+text-white
+">
+
+
+<h1 className="
+text-5xl
+font-bold
+">
+
+SmartDeskOS
+
+</h1>
+
+
+</main>
+
+);
+
+
 }
