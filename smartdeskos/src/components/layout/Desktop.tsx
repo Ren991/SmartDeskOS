@@ -124,56 +124,7 @@ icon={
 <WindowContainer/>
 
 
-<button
 
-onClick={()=>{
-
-addWindow({
-
-id:
-crypto.randomUUID(),
-
-appId:"demo",
-
-title:"Demo App",
-
-x:100,
-
-y:100,
-
-width:500,
-
-height:350,
-
-zIndex:Date.now(),
-
-minimized:false,
-
-maximized:false,
-
-focused:true
-
-})
-
-}}
-
-className="
-absolute
-top-5
-right-5
-z-50
-bg-white
-text-black
-px-4
-py-2
-rounded
-"
-
->
-
-Open Demo
-
-</button>
 
 <Taskbar/>
 
