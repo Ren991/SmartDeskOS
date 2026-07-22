@@ -1,17 +1,29 @@
 "use client";
 
 
-import { useEffect,useState } from "react";
+import {
+useEffect,
+useState
+} from "react";
 
 
 export default function Clock(){
 
-const [date,setDate]=useState(
- new Date()
-);
+
+const [mounted,setMounted] = useState(false);
+
+
+const [date,setDate] =
+useState<Date | null>(null);
+
 
 
 useEffect(()=>{
+
+
+setMounted(true);
+
+setDate(new Date());
 
 
 const timer =
@@ -27,6 +39,27 @@ return ()=>clearInterval(timer);
 
 
 },[]);
+
+
+
+if(!mounted || !date){
+
+return (
+
+<div
+className="
+text-white
+text-sm
+"
+>
+
+--:--
+
+</div>
+
+);
+
+}
 
 
 
@@ -57,7 +90,9 @@ minute:"2-digit"
 </div>
 
 
-<div className="opacity-70">
+<div
+className="opacity-70"
+>
 
 {
 date.toLocaleDateString(

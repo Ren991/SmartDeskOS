@@ -1,21 +1,42 @@
 export interface WindowInstance {
+
   id: string;
 
   appId: string;
 
   title: string;
 
+
   x: number;
+
   y: number;
 
+
   width: number;
+
   height: number;
 
-  zIndex: number;
 
-  minimized: boolean;
+  previous?: {
 
-  maximized: boolean;
+    x:number;
 
-  focused: boolean;
+    y:number;
+
+    width:number;
+
+    height:number;
+
+  };
+
+
+  zIndex:number;
+
+
+  minimized:boolean;
+
+  maximized:boolean;
+
+  focused:boolean;
+
 }
