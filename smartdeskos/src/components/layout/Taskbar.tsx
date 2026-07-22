@@ -10,6 +10,9 @@ import {
  Grid
 } from "lucide-react";
 
+import OpenWindows
+from "@/components/taskbar/OpenWindows";
+
 
 import Clock
 from "./Clock";
@@ -78,9 +81,11 @@ transition
 
 
 
-<div>
+{/* <div>
 
-</div>
+</div> */}
+
+<OpenWindows/>
 
 
 
