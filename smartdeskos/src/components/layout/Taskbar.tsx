@@ -43,19 +43,20 @@ open={open}
 
 <div
 className="
-absolute
-bottom-0
-left-0
-right-0
-h-14
-bg-black/40
-backdrop-blur-xl
-border-t
-border-white/10
-flex
-items-center
-justify-between
-px-4
+ fixed
+  bottom-0
+  left-0
+  right-0
+  h-14
+  z-50
+  bg-black/40
+  backdrop-blur-xl
+  border-t
+  border-white/10
+  flex
+  items-center
+  justify-between
+  px-4
 "
 >
 
