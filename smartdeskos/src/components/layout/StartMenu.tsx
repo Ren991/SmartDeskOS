@@ -1,13 +1,14 @@
 interface Props {
 
 open:boolean;
+onBlock:()=>void;
 
 }
 
 
 
 export default function StartMenu({
-open
+open, onBlock
 }:Props){
 
 
@@ -32,6 +33,7 @@ border-white/10
 p-5
 text-white
 shadow-2xl
+z-[9999]
 "
 >
 
@@ -78,15 +80,23 @@ Settings
 </div>
 
 
-<div
+<button
+
+onClick={onBlock}
+
 className="
+w-full
+text-left
 hover:bg-white/10
 rounded
 p-2
 "
+
 >
-Power
-</div>
+
+Block
+
+</button>
 
 
 </div>

@@ -31,6 +31,10 @@ from "./DesktopIcon";
 import Taskbar
 from "./Taskbar";
 
+import {
+useLockStore
+} from "@/stores/useLockStore";
+import LockScreen from "../desktop/LockSreen";
 
 
 export default function Desktop(){
@@ -38,6 +42,16 @@ export default function Desktop(){
 const addWindow =
 useWindowStore(
 state=>state.addWindow
+);
+
+const locked =
+useLockStore(
+state=>state.locked
+);
+
+const unlock =
+useLockStore(
+state=>state.unlock
 );
 
 
@@ -68,15 +82,7 @@ gap-4
 >
 
 
-{/* <DesktopIcon
 
-label="Explorer"
-
-icon={
-<Folder/>
-}
-
-/> */}
 
 
 <div
@@ -128,6 +134,16 @@ launchApp(app.id)
 
 <Taskbar/>
 
+
+{
+
+locked &&
+
+<LockScreen
+onUnlock={unlock}
+/>
+
+}
 
 </div>
 

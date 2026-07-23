@@ -5,6 +5,10 @@ import {
  useState
 } from "react";
 
+import {
+useLockStore
+} from "@/stores/useLockStore";
+
 
 import {
  Grid
@@ -28,7 +32,10 @@ export default function Taskbar(){
 
 const [open,setOpen]=useState(false);
 
-
+const lock =
+useLockStore(
+state=>state.lock
+);
 
 return (
 
@@ -37,6 +44,13 @@ return (
 
 <StartMenu
 open={open}
+onBlock={()=>{
+
+    setOpen(false);
+
+    lock();
+
+  }}
 />
 
 
