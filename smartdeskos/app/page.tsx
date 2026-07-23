@@ -1,13 +1,17 @@
 import Desktop
 from "@/components/layout/Desktop";
+import DesktopOnly from "./DesktopOnly";
 
 
 export default function Home(){
 
 return (
 
-<Desktop/>
+  <DesktopOnly>
 
+      <Desktop />
+
+    </DesktopOnly>
 );
 
 }

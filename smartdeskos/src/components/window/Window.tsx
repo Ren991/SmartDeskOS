@@ -119,7 +119,8 @@ return (
 
 <Rnd
 
-
+ minWidth={320}
+  minHeight={500}
 position={
 
 maximized
@@ -299,7 +300,6 @@ removeWindow(id);
 className="
 flex
 flex-1
-min-h-0
 overflow-hidden
 p-0
 text-white
