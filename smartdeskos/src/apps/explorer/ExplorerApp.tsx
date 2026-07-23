@@ -5,6 +5,7 @@ import { useExplorerStore } from "@/stores/useExplorerStore";
 import ExplorerHeader from "./ExploreHeader";
 import ExplorerGrid from "./ExplorerGrid";
 import ExplorerStatusBar from "./ExplorerStatusBar";
+import { useSelectionStore } from "@/stores/useSelectionStore";
 
 export default function ExplorerApp() {
   const {
@@ -14,9 +15,31 @@ export default function ExplorerApp() {
     goBack,
   } = useExplorerStore();
 
-  return (
-    <div className="flex h-full flex-col bg-white text-gray-800">
+  const clearSelection =
+    useSelectionStore(
+        state => state.clear
+    );
 
+  return (
+
+    <div
+    className="
+        flex
+        h-full
+        flex-col
+        bg-white
+        text-gray-800
+    "
+    onClick={(event) => {
+
+        if (event.target === event.currentTarget) {
+
+            clearSelection();
+
+        }
+
+    }}
+>
       {/* Header */}
       <ExplorerHeader
     path={path}
@@ -29,7 +52,8 @@ export default function ExplorerApp() {
   <div
   className="
     flex-1
-    overflow-auto
+    overflow-y-auto
+    overflow-x-hidden
   "
 >
   <ExplorerGrid

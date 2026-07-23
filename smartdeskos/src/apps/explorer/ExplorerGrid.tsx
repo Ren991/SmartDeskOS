@@ -2,6 +2,7 @@
 
 import { Folder, FileText } from "lucide-react";
 import { FileNode } from "@/core/filesystem/types";
+import ExplorerItem from "./ExplorerItem";
 
 interface ExplorerGridProps {
   items: FileNode[];
@@ -23,41 +24,21 @@ export default function ExplorerGrid({
   return (
     <div
   className="
-    grid
-    grid-cols-[repeat(auto-fill,minmax(120px,120px))]
-    gap-4
+     grid
+    grid-cols-[repeat(auto-fill,120px)]
+    gap-5
     p-5
-    items-start
+    w-full
   "
 >
 
       {items.map((item) => (
-        <button
-          key={item.id}
-          onDoubleClick={() => {
-            if (item.type === "folder") {
-              onOpenFolder(item.id);
-            }
-          }}
-          className="group flex flex-col items-center rounded-xl p-3 transition-all duration-150 hover:bg-sky-100 active:scale-95"
-        >
-          {item.type === "folder" ? (
-            <Folder
-              size={58}
-              className="text-yellow-500 transition-transform group-hover:scale-105"
-            />
-          ) : (
-            <FileText
-              size={58}
-              className="text-sky-500 transition-transform group-hover:scale-105"
-            />
-          )}
-
-          <span className="mt-2 max-w-full break-words text-center text-sm">
-            {item.name}
-          </span>
-        </button>
-      ))}
+  <ExplorerItem
+    key={item.id}
+    item={item}
+    onOpenFolder={onOpenFolder}
+  />
+))}
     </div>
   );
 }
