@@ -1,5 +1,6 @@
 import { COMMANDS } from "./commands";
 import { APP_REGISTRY } from "@/apps/registry";
+import { LINK_REGISTRY } from "@/apps/terminal/links";
 
 export interface ExecuteResult {
   type: "output" | "error";
@@ -157,7 +158,44 @@ export function executeCommand(
 
     }
 
+case "/github":
+case "/linkedin":
+case "/portfolio": {
 
+  const link = LINK_REGISTRY[command];
+
+
+  if(!link){
+
+    return {
+      type:"error",
+      text:`Link "${command}" not configured`
+    };
+
+  }
+
+
+  if(typeof window !== "undefined"){
+
+    window.open(
+      link.url,
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+  }
+
+
+  return {
+
+    type:"output",
+
+    text:
+      `Opening ${link.name}...`
+
+  };
+
+}
 
     default:
 
