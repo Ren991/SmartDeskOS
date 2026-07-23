@@ -237,7 +237,7 @@ opacity-70
 "
 >
 
-Presiona ENTER para continuar
+Press ENTER to continue
 
 </div>
 
