@@ -5,6 +5,7 @@ import type { AppDefinition }
 import DemoApp
     from "./demo/DemoApp";
 import ExplorerApp from "@/apps/explorer/ExplorerApp";
+import TerminalApp from "./terminal/TerminalApp";
 
 
 
@@ -30,6 +31,17 @@ export const APP_REGISTRY:
         keywords: ["files", "folders", "explorer"],
         component: ExplorerApp,
         },
+        {
+    id: "terminal",
+    name: "Terminal",
+    icon: "💻",
+    keywords: [
+        "terminal",
+        "console",
+        "cmd"
+    ],
+    component: TerminalApp,
+},
 
 
     ];

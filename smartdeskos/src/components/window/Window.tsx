@@ -231,7 +231,9 @@ y:pos.y
 <div
 
 className="
+flex
 h-full
+flex-col
 bg-neutral-800
 rounded-xl
 overflow-hidden
@@ -295,8 +297,13 @@ removeWindow(id);
 <div
 
 className="
-p-4
+flex
+flex-1
+min-h-0
+overflow-hidden
+p-0
 text-white
+w-full
 "
 
 >
