@@ -1,12 +1,11 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { TerminalLine } from "./types";
 
 
 interface Props {
-
   lines: TerminalLine[];
-
 }
 
 
@@ -15,31 +14,46 @@ export default function TerminalOutput({
 }: Props) {
 
 
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+
+
+  useEffect(()=>{
+
+    bottomRef.current?.scrollIntoView({
+      behavior:"smooth"
+    });
+
+
+  },[lines]);
+
+
+
   return (
 
     <div
       className="
         flex-1
+        w-full
         min-h-0
         overflow-y-auto
         p-4
         font-mono
         text-sm
-        whitespace-pre-wrap
       "
     >
 
       {
-        lines.map(line => (
+        lines.map(line=>(
 
           <div
             key={line.id}
             className={
-              line.type === "error"
+              line.type==="error"
               ?
               "text-red-400"
               :
-              line.type === "input"
+              line.type==="input"
               ?
               "text-green-400"
               :
@@ -48,7 +62,7 @@ export default function TerminalOutput({
           >
 
             {
-              line.type === "input"
+              line.type==="input"
               ?
               `> ${line.text}`
               :
@@ -59,6 +73,10 @@ export default function TerminalOutput({
 
         ))
       }
+
+
+      {/* punto invisible para hacer scroll */}
+      <div ref={bottomRef}/>
 
 
     </div>
