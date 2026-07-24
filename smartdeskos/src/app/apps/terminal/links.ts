@@ -6,7 +6,7 @@ export const LINK_REGISTRY = {
 
   "/linkedin": {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/renzobeccari",
+    url: "https://linkedin.com/in/renzo-beccari",
   },
 
   "/portfolio": {

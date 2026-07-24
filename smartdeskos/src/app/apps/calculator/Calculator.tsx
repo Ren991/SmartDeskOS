@@ -456,7 +456,8 @@ export default function Calculator() {
 
     <div
       className="
-      w-80
+      w-125
+      h-70
       rounded-3xl
       bg-black/40
       backdrop-blur-xl
