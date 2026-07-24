@@ -11,6 +11,7 @@ import WeatherApp from "./WeatherApp/WeatherApp";
 import MapApp from "./mapApp/MapApp";
 import WorldClockApp from "./worldClockApp/WorldClockApp";
 import MusicApp from "./musicApp/MusicApp";
+import NewsReaderApp from "./newReaderApp/NewsReaderApp";
 
 export const APP_REGISTRY: AppDefinition[] = [
   {
@@ -54,7 +55,7 @@ export const APP_REGISTRY: AppDefinition[] = [
    {
     id: "weather",
     name: "Weather",
-    icon: "🌤️", // Emoji directo para el icono de la barra / menú
+    icon: "🌤️", 
     component: WeatherApp
   },
   {
@@ -75,6 +76,12 @@ export const APP_REGISTRY: AppDefinition[] = [
     icon: "🎵",
     component: MusicApp
   },
+  {
+    id:"newsApp",
+    name:"News",
+    icon:"📰",
+    component: NewsReaderApp
+  }
 
 ];
 
