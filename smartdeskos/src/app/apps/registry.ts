@@ -8,6 +8,7 @@ import SmartPad from "./smartPad/SmartPad";
 import CodePlayground from "./codePlaygroun/CodePlayground";
 import { Code2 } from "lucide-react";
 import WeatherApp from "./WeatherApp/WeatherApp";
+import MapApp from "./mapApp/MapApp";
 
 export const APP_REGISTRY: AppDefinition[] = [
   {
@@ -53,6 +54,12 @@ export const APP_REGISTRY: AppDefinition[] = [
     name: "Weather",
     icon: "🌤️", // Emoji directo para el icono de la barra / menú
     component: WeatherApp
+  },
+  {
+    id: "maps",
+    name: "Maps",
+    icon: "🗺️",
+    component: MapApp,
   }
 
 ];
