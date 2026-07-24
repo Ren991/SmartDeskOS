@@ -39,6 +39,11 @@ export interface WindowInstance {
 
   focused:boolean;
 
-  params?: { initialCommand?: string };
-
+params?: {
+    initialCommand?: string;
+    file?: {
+      name: string;
+      content: string;
+    };
+  };
 }

@@ -2,27 +2,23 @@
 
 import { create } from "zustand";
 import { FileNode, fileSystem } from "@/core/filesystem";
+import { launchApp } from "@/services/appLauncher"; // Importamos launchApp
 
 interface ExplorerState {
   currentFolder: FileNode;
-
   path: FileNode[];
-
   openFolder: (id: string) => void;
-
+  openFile: (file: FileNode) => void; // <-- Acción para abrir archivos
   goBack: () => void;
 }
 
-function findFolder(node: FileNode, id: string): FileNode | null {
+function findNode(node: FileNode, id: string): FileNode | null {
   if (node.id === id) return node;
 
   if (!node.children) return null;
 
   for (const child of node.children) {
-    if (child.type !== "folder") continue;
-
-    const result = findFolder(child, id);
-
+    const result = findNode(child, id);
     if (result) return result;
   }
 
@@ -31,17 +27,28 @@ function findFolder(node: FileNode, id: string): FileNode | null {
 
 export const useExplorerStore = create<ExplorerState>((set, get) => ({
   currentFolder: fileSystem,
-
   path: [fileSystem],
 
   openFolder(id) {
-    const folder = findFolder(fileSystem, id);
+    const folder = findNode(fileSystem, id);
 
-    if (!folder) return;
+    if (!folder || folder.type !== "folder") return;
 
     set({
       currentFolder: folder,
       path: [...get().path, folder],
+    });
+  },
+
+  openFile(file) {
+    if (file.type !== "file") return;
+
+    // Lanzamos SmartPad pasándole las props del archivo directamente en los params
+    launchApp("smartpad", {
+      file: {
+        name: file.name,
+        content: file.content || "",
+      },
     });
   },
 

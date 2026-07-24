@@ -25,6 +25,13 @@ import {
   Type,
 } from "lucide-react";
 
+interface SmartPadProps {
+  file?: {
+    name: string;
+    content: string;
+  };
+}
+
 // Lista de las 7 tipografías disponibles
 const FONT_FAMILIES = [
   { name: "Sans Serif", value: "ui-sans-serif, system-ui, sans-serif" },
@@ -93,10 +100,13 @@ const FontSize = Extension.create({
   },
 });
 
-export default function SmartPad() {
-  const [fontSize, setFontSize] = useState(16);
+export default function SmartPad({ file }: SmartPadProps) {  const [fontSize, setFontSize] = useState(16);
   const [selectedFont, setSelectedFont] = useState(FONT_FAMILIES[0].value);
   const [hasChanges, setHasChanges] = useState(false);
+  const [content, setContent] = useState<string>("");
+  const [fileName, setFileName] = useState<string>("Sin título.txt");
+
+
 
   const editor = useEditor({
     extensions: [
@@ -121,7 +131,18 @@ export default function SmartPad() {
       setHasChanges(true);
     },
   });
+useEffect(() => {
+  if (file) {
+    const newContent = file.content || "";
+    setContent(newContent);
+    setFileName(file.name || "Archivo.txt");
 
+    if (editor && newContent.trim() !== "") {
+      editor.commands.setContent(newContent);
+      setHasChanges(false);
+    }
+  }
+}, [file, editor]); 
   // Sincronizar tamaño y fuente según la selección activa
   useEffect(() => {
     if (!editor) return;
@@ -169,6 +190,7 @@ export default function SmartPad() {
   return (
     <div className="w-full h-full flex flex-col bg-zinc-950 text-zinc-100 rounded-xl border border-white/10 overflow-hidden shadow-2xl">
       {/* Cargar Google Fonts de forma dinámica para las tipografías extras */}
+      <span>📄 {fileName}</span>
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@400;500&family=Roboto:wght@400;500&display=swap"

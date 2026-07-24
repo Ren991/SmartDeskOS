@@ -1,8 +1,7 @@
-export type NodeType = "folder" | "file";
-
 export interface FileNode {
   id: string;
   name: string;
-  type: NodeType;
+  type: "folder" | "file";
+  content?: string;
   children?: FileNode[];
 }

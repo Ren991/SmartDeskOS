@@ -1,44 +1,32 @@
 "use client";
 
-import { Folder, FileText } from "lucide-react";
-import { FileNode } from "@/core/filesystem/types";
-import ExplorerItem from "./ExplorerItem";
+import type { FileNode } from "@/core/filesystem";
 
 interface ExplorerGridProps {
   items: FileNode[];
-  onOpenFolder: (id: string) => void;
+  onItemDoubleClick: (item: FileNode) => void; // Reemplazamos onOpenFolder por esto
 }
 
 export default function ExplorerGrid({
   items,
-  onOpenFolder,
+  onItemDoubleClick,
 }: ExplorerGridProps) {
-  if (items.length === 0) {
-    return (
-      <div className="flex h-full items-center justify-center text-gray-500">
-        Esta carpeta está vacía.
-      </div>
-    );
-  }
-
   return (
-    <div
-  className="
-     grid
-    grid-cols-[repeat(auto-fill,120px)]
-    gap-5
-    p-5
-    w-full
-  "
->
-
+    <div className="grid grid-cols-4 gap-4 p-4">
       {items.map((item) => (
-  <ExplorerItem
-    key={item.id}
-    item={item}
-    onOpenFolder={onOpenFolder}
-  />
-))}
+        <div
+          key={item.id}
+          onDoubleClick={() => onItemDoubleClick(item)}
+          className="flex flex-col items-center p-3 rounded-lg hover:bg-gray-100 cursor-pointer select-none transition-colors"
+        >
+          <span className="text-3xl mb-1">
+            {item.type === "folder" ? "📁" : "📄"}
+          </span>
+          <span className="text-xs text-center truncate w-full font-medium">
+            {item.name}
+          </span>
+        </div>
+      ))}
     </div>
   );
 }

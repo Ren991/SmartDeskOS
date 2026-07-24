@@ -1,3 +1,4 @@
+// @/core/filesystem.ts
 import { FileNode } from "./types";
 
 export const fileSystem: FileNode = {
@@ -14,6 +15,7 @@ export const fileSystem: FileNode = {
           id: "welcome",
           name: "Welcome.txt",
           type: "file",
+          content: "Bienvenido a SmartDeskOS!\n\nEste es un entorno de escritorio web construido con Next.js y React.",
         },
       ],
     },
@@ -31,6 +33,7 @@ export const fileSystem: FileNode = {
               id: "roadmap",
               name: "Roadmap.md",
               type: "file",
+              content: "# SmartDeskOS Roadmap\n\n- [x] Window Manager\n- [x] Multi-terminal support\n- [ ] Virtual FileSystem Integration\n- [ ] Drag and Drop UI",
             },
           ],
         },

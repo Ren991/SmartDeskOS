@@ -55,22 +55,6 @@ export default function ExplorerHeader({
 
       {/* Buscador (visual por ahora) */}
 
-      <div className="flex w-72 items-center gap-2 rounded-md border bg-white px-3">
-
-        <Search
-          size={16}
-          className="text-gray-400"
-        />
-
-        <input
-          type="text"
-          placeholder="Buscar..."
-          className="w-full py-2 text-sm outline-none"
-          disabled
-        />
-
-      </div>
-
     </header>
   );
 }

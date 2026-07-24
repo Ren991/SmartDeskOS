@@ -19,7 +19,8 @@ export default function WindowContainer() {
         return (
           <Window key={window.id} {...window}>
             {/* Le pasamos los params de la ventana como props al componente */}
-            <Component initialCommand={window.params?.initialCommand} />
+            <Component initialCommand={window.params?.initialCommand} 
+            file={window.params?.file} />
           </Window>
         );
       })}

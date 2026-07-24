@@ -4,9 +4,16 @@ import { windowManager } from "@/core/window-manager";
 
 const MULTI_INSTANCE_APPS = ["terminal"];
 
+export interface LaunchParams {
+  initialCommand?: string;
+  file?: {
+    name: string;
+    content: string;
+  };
+}
+
 // Agregamos el parámetro opcional params
-export function launchApp(appId: string, params?: { initialCommand?: string }) {
-  const app = getAppById(appId);
+export function launchApp(appId: string, params?: LaunchParams) {  const app = getAppById(appId);
 
   if (!app) {
     console.error("App no encontrada:", appId);

@@ -7,6 +7,7 @@ import Calculator from "./calculator/Calculator";
 import SmartPad from "./smartPad/SmartPad";
 import CodePlayground from "./codePlaygroun/CodePlayground";
 import { Code2 } from "lucide-react";
+import WeatherApp from "./WeatherApp/WeatherApp";
 
 export const APP_REGISTRY: AppDefinition[] = [
   {
@@ -47,6 +48,12 @@ export const APP_REGISTRY: AppDefinition[] = [
     icon: "💻",
     component: CodePlayground,
   },
+   {
+    id: "weather",
+    name: "Weather",
+    icon: "🌤️", // Emoji directo para el icono de la barra / menú
+    component: WeatherApp
+  }
 
 ];
 
