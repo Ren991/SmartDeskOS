@@ -7,7 +7,7 @@ export interface AppDefinition {
 
   name:string;
 
-  icon:string;
+  icon:string ;
 
   keywords?:string[];
 

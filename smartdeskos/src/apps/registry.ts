@@ -5,6 +5,8 @@ import ExplorerApp from "@/apps/explorer/ExplorerApp";
 import TerminalApp from "./terminal/TerminalApp";
 import Calculator from "./calculator/Calculator";
 import SmartPad from "./smartPad/SmartPad";
+import CodePlayground from "./codePlaygroun/CodePlayground";
+import { Code2 } from "lucide-react";
 
 export const APP_REGISTRY: AppDefinition[] = [
   {
@@ -23,7 +25,7 @@ export const APP_REGISTRY: AppDefinition[] = [
   {
     id: "terminal",
     name: "Terminal",
-    icon: "💻",
+    icon: "⌨️",
     keywords: ["terminal", "console", "cmd"],
     component: TerminalApp,
   },
@@ -39,6 +41,13 @@ export const APP_REGISTRY: AppDefinition[] = [
     icon: "📝",
     component: SmartPad,
   },
+   {
+    id: "codeEditor",
+    name: "Code Playground",
+    icon: "💻",
+    component: CodePlayground,
+  },
+
 ];
 
 export function getAppById(id: string) {

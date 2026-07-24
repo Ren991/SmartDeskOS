@@ -3,34 +3,20 @@
 import { useEffect, useRef } from "react";
 import { TerminalLine } from "./types";
 
-
 interface Props {
   lines: TerminalLine[];
 }
 
-
-export default function TerminalOutput({
-  lines,
-}: Props) {
-
-
+export default function TerminalOutput({ lines }: Props) {
   const bottomRef = useRef<HTMLDivElement>(null);
 
-
-
-  useEffect(()=>{
-
+  useEffect(() => {
     bottomRef.current?.scrollIntoView({
-      behavior:"smooth"
+      behavior: "smooth",
     });
-
-
-  },[lines]);
-
-
+  }, [lines]);
 
   return (
-
     <div
       className="
         flex-1
@@ -42,45 +28,23 @@ export default function TerminalOutput({
         text-sm
       "
     >
-
-      {
-        lines.map(line=>(
-
-          <div
-            key={line.id}
-            className={
-              line.type==="error"
-              ?
-              "text-red-400"
-              :
-              line.type==="input"
-              ?
-              "text-green-400"
-              :
-              "text-gray-200"
-            }
-          >
-
-            {
-              line.type==="input"
-              ?
-              `> ${line.text}`
-              :
-              line.text
-            }
-
-          </div>
-
-        ))
-      }
-
+      {lines.map((line) => (
+        <div
+          key={line.id}
+          className={`whitespace-pre-wrap ${
+            line.type === "error"
+              ? "text-red-400"
+              : line.type === "input"
+              ? "text-green-400"
+              : "text-gray-200"
+          }`}
+        >
+          {line.type === "input" ? `> ${line.text}` : line.text}
+        </div>
+      ))}
 
       {/* punto invisible para hacer scroll */}
-      <div ref={bottomRef}/>
-
-
+      <div ref={bottomRef} />
     </div>
-
   );
-
 }
