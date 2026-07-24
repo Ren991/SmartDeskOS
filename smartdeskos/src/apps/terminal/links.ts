@@ -1,16 +1,16 @@
 export const LINK_REGISTRY = {
   "/github": {
     name: "GitHub",
-    url: "https://github.com/tuusuario",
+    url: "https://github.com/ren991",
   },
 
   "/linkedin": {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/tuusuario",
+    url: "https://linkedin.com/in/renzobeccari",
   },
 
   "/portfolio": {
     name: "Portfolio",
-    url: "https://tuportfolio.com",
+    url: "https://ren991.github.io/Portfolio/",
   },
 };
