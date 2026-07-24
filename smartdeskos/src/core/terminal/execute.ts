@@ -1,6 +1,6 @@
 import { COMMANDS } from "./commands";
-import { APP_REGISTRY } from "@/apps/registry";
-import { LINK_REGISTRY } from "@/apps/terminal/links";
+import { APP_REGISTRY } from "@/app/apps/registry";
+import { LINK_REGISTRY } from "@/app/apps/terminal/links";
 
 export interface ExecuteResult {
   type: "output" | "error";

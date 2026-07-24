@@ -1,11 +1,11 @@
 "use client";
 
 import { Folder, Notebook, Settings } from "lucide-react";
-import { APP_REGISTRY } from "@/apps/registry";
+import { APP_REGISTRY } from "@/app/apps/registry";
 import Wallpaper from "../system/Wallpaper";
 import { useWindowStore } from "@/stores/useWindowStore";
 import { launchApp } from "@/services/appLauncher";
-import WindowContainer from "@/components/window/WindowContainer";
+import WindowContainer from "@/app/components/window/WindowContainer";
 import DesktopIcon from "./DesktopIcon";
 import Taskbar from "./Taskbar";
 import { useLockStore } from "@/stores/useLockStore";

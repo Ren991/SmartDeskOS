@@ -14,7 +14,7 @@ from "./Window";
 import {
 getAppById
 }
-from "@/apps/registry";
+from "@/app/apps/registry";
 
 
 

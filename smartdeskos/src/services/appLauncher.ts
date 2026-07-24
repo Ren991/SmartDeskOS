@@ -1,5 +1,5 @@
 import { useWindowStore } from "@/stores/useWindowStore";
-import { getAppById } from "@/apps/registry";
+import { getAppById } from "@/app/apps/registry";
 
 export function launchApp(appId: string) {
   const app = getAppById(appId);

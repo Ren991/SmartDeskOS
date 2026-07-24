@@ -1,5 +1,5 @@
 import Desktop
-from "@/components/layout/Desktop";
+from "@/app/components/layout/Desktop";
 import DesktopOnly from "./DesktopOnly";
 
 

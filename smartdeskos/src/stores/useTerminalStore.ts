@@ -1,7 +1,7 @@
 "use client";
 
 import { create } from "zustand";
-import { TerminalLine } from "@/apps/terminal/types";
+import { TerminalLine } from "@/app/apps/terminal/types";
 
 interface TerminalState {
   lines: TerminalLine[];

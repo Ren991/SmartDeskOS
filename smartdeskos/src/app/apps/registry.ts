@@ -1,7 +1,7 @@
 import type { AppDefinition } from "@/types/app";
 
 import DemoApp from "./demo/DemoApp";
-import ExplorerApp from "@/apps/explorer/ExplorerApp";
+import ExplorerApp from "@/app/apps/explorer/ExplorerApp";
 import TerminalApp from "./terminal/TerminalApp";
 import Calculator from "./calculator/Calculator";
 import SmartPad from "./smartPad/SmartPad";

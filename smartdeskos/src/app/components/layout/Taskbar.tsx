@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 import OpenWindows
-from "@/components/taskbar/OpenWindows";
+from "@/app/components/taskbar/OpenWindows";
 
 
 import Clock
