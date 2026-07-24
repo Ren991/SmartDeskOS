@@ -33,7 +33,7 @@ Un entorno interactivo de terminal y playground web en tiempo real desarrollado 
 
 ```bash
 # Clonar e instalar
-git clone [https://github.com/tu-usuario/dev-terminal.git](https://github.com/tu-usuario/dev-terminal.git)
+git clone [https://github.com/Ren991/SmartDeskOS.git](https://github.com/Ren991/SmartDeskOS.git)
 cd dev-terminal
 npm install
 
