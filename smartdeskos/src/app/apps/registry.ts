@@ -9,6 +9,7 @@ import CodePlayground from "./codePlaygroun/CodePlayground";
 import { Code2 } from "lucide-react";
 import WeatherApp from "./WeatherApp/WeatherApp";
 import MapApp from "./mapApp/MapApp";
+import WorldClockApp from "./worldClockApp/WorldClockApp";
 
 export const APP_REGISTRY: AppDefinition[] = [
   {
@@ -60,6 +61,12 @@ export const APP_REGISTRY: AppDefinition[] = [
     name: "Maps",
     icon: "🗺️",
     component: MapApp,
+  },
+  {
+    id:"clock",
+    name:"World Clock",
+    icon:"",
+    component: WorldClockApp
   }
 
 ];
