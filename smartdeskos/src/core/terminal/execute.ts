@@ -1,6 +1,7 @@
 import { COMMANDS } from "./commands";
 import { APP_REGISTRY } from "@/app/apps/registry";
 import { LINK_REGISTRY } from "@/app/apps/terminal/links";
+import { TerminalLine } from "@/app/apps/terminal/types";
 
 export interface ExecuteResult {
   type: "output" | "error";
@@ -11,8 +12,7 @@ export interface ExecuteResult {
 
 
 export function executeCommand(
-  input: string
-): ExecuteResult {
+input: string, addLine: (line: TerminalLine) => void): ExecuteResult {
 
 
   const args =

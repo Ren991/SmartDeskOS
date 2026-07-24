@@ -19,7 +19,7 @@ Demo Application
 
 <p className="mt-3">
 
-Mi primera aplicación dentro de SmartDeskOS 🚀
+My first app in SmartDeskOS 🚀
 
 </p>
 

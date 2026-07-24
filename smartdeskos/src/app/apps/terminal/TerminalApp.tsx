@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import TerminalInput from "./TerminalInput";
 import TerminalOutput from "./TerminalOutput";
@@ -10,10 +10,11 @@ import { launchApp } from "@/services/appLauncher";
 
 import { TerminalLine } from "./types";
 
+interface TerminalAppProps {
+  initialCommand?: string; // Sin el = "/apps" por defecto
+}
 
-export default function TerminalApp() {
-
-
+export default function TerminalApp({ initialCommand }: TerminalAppProps) {
   const [lines, setLines] = useState<TerminalLine[]>([
     {
       id: crypto.randomUUID(),
@@ -27,74 +28,48 @@ export default function TerminalApp() {
     },
   ]);
 
+  const hasExecutedRef = useRef(false);
 
+  const addLine = (line: TerminalLine) => {
+    setLines((prev) => [...prev, line]);
+  };
 
-  function submit(command:string){
+  function submit(command: string) {
+    addLine({
+      id: crypto.randomUUID(),
+      type: "input",
+      text: command,
+    });
 
+    const result = executeCommand(command, addLine);
 
-    setLines(prev => [
-      ...prev,
-      {
-        id: crypto.randomUUID(),
-        type:"input",
-        text:command
+    if (result) {
+      if (result.text) {
+        addLine({
+          id: crypto.randomUUID(),
+          type: result.type || "output",
+          text: result.text,
+        });
       }
-    ]);
 
-
-
-    const result =
-      executeCommand(command);
-
-
-
-    setLines(prev => [
-      ...prev,
-      {
-        id:crypto.randomUUID(),
-        type:result.type,
-        text:result.text
+      if (result.appId) {
+        launchApp(result.appId);
       }
-    ]);
-
-
-
-    if(result.appId){
-
-      launchApp(result.appId);
-
     }
-
   }
 
-
+  // SOLO se dispara si vino un initialCommand explícito
+  useEffect(() => {
+    if (initialCommand && !hasExecutedRef.current) {
+      hasExecutedRef.current = true;
+      submit(initialCommand);
+    }
+  }, [initialCommand]);
 
   return (
-
-    <div
-      className="
-        flex
-        h-full
-        w-full
-        min-h-0
-        flex-col
-        overflow-hidden
-        bg-neutral-900
-        text-white
-      "
-    >
-
-      <TerminalOutput
-        lines={lines}
-      />
-
-
-      <TerminalInput
-        onSubmit={submit}
-      />
-
-
+    <div className="flex h-full w-full min-h-0 flex-col overflow-hidden bg-neutral-900 text-white">
+      <TerminalOutput lines={lines} />
+      <TerminalInput onSubmit={submit} />
     </div>
-
   );
 }

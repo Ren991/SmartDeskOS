@@ -11,6 +11,6 @@ export interface AppDefinition {
 
   keywords?:string[];
 
-  component:ComponentType;
+  component: ComponentType<any>;
 
 }

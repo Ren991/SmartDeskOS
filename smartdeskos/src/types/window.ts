@@ -39,4 +39,6 @@ export interface WindowInstance {
 
   focused:boolean;
 
+  params?: { initialCommand?: string };
+
 }
